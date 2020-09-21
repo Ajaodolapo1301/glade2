@@ -1,10 +1,12 @@
 
 
+import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/constants/colorConstants.dart';
 import 'package:glade_app/screens/fundTransfer.dart';
 import 'package:glade_app/screens/profile.dart';
+import 'package:hive/hive.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 
@@ -22,8 +24,8 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
   TabController _tabController;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-
-
+  bool isSwitched = false;
+  bool isClicked =  false;
 
   @override
   void initState() {
@@ -34,6 +36,24 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
   @override
   Widget build(BuildContext context) {
+
+
+//
+//    int _tabIndex = 0;
+//
+//    var tab = TabController(
+//        initialIndex: 0,
+//        length: 4,
+//        vsync: this
+//    );
+//
+//
+//    void _handleTabSelection(){
+//      setState(() {
+//        tab.index = _tabIndex;
+//      });
+//    }
+//    tab.addListener(_handleTabSelection);
 
     return Scaffold(
       key: _scaffoldKey,
@@ -68,13 +88,13 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
                     },
                     child: Container(
-                        child: IconButton(icon:      Icon(Icons.clear_all, size: 30,), onPressed: ()=>
+                        child: IconButton(icon:      Icon(Icons.clear_all,color: Colors.white, size: 30,), onPressed: ()=>
 
                         Navigator.push(context, FadeRoute(page: Profile())),
                         )
                ),
                   ),
-                  IconButton(icon:      Icon(Icons.notifications, size: 30,), onPressed: ()=>
+                  IconButton(icon:      Icon(Icons.notifications, color: Colors.white, size: 30,), onPressed: ()=>
 
                       Navigator.push(context, FadeRoute(page: Fund())),
                   )
@@ -109,10 +129,39 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Spacer(),
-                    Container(
+           isSwitched ?     Container(
+             margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
+             height: 35,
+             child:   TabBar(
+               onTap: null,
+
+               unselectedLabelColor:Colors.black.withOpacity(0.2) ,
+
+               labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
+
+
+               controller: _tabController,
+               isScrollable: true,
+               indicator: RectangularIndicator(
+                 color: Colors.orange,
+                 bottomLeftRadius: 10,
+                 bottomRightRadius: 10,
+                 topLeftRadius: 10,
+                 topRightRadius: 10,
+
+               ),
+               tabs: <Widget>[
+                 Text('Personal'),
+                 Text("Seller's Tools"),
+                 Text('Payments'),
+                 Text('Business Management'),
+               ],
+             ),
+           ):      Container(
                       margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
                       height: 35,
-                      child: TabBar(
+                      child:   TabBar(
+
                         unselectedLabelColor:Colors.black ,
 
                         labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
@@ -149,7 +198,9 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           top: 20,
           child: Align(
             alignment: Alignment.center,
-            child: Card(
+            child: Material(
+              borderRadius: BorderRadius.circular(20),
+              elevation: 3.0,
               child: Container(
                 height: 200,
                 width: 320,
@@ -157,7 +208,60 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
                 ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    switches(),
 
+                    Column(
+                      children: <Widget>[
+                 isClicked  ?   Text("000000000000",  style: TextStyle(
+                     fontSize: 34,
+                     fontFamily: "SFPro",
+                     fontWeight: FontWeight.bold)) :  Text.rich(TextSpan(children: [
+                          TextSpan(
+                              text: "NGN, ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16, fontFamily: "SFPro", )),
+                          TextSpan(
+                              text: "0.00",
+                              style: TextStyle(
+                                  fontSize: 34,
+                                  fontFamily: "SFPro",
+                                  fontWeight: FontWeight.bold)),
+                        ])),
+                        isClicked  ?      Text("Account Number", style: TextStyle(fontSize: 18),) :    Text("Available balance", style: TextStyle(fontSize: 18),),
+                      ],
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Account name", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),),
+                           isSwitched ?  Text("Sum Davon", style: TextStyle(color: greyText),): Text("Sum Glade limited", style: TextStyle(color: greyText),
+                           ) ],
+                          ),
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                isClicked = !isClicked;
+                              });
+                            },
+                            child: Container(
+                              height: 30,
+                                child: Image.asset("images/toggler.png",fit: BoxFit.cover,)),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -169,7 +273,38 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           SizedBox(
             height: 20,
           ),
-          Expanded(
+      isSwitched ?         Expanded(
+        child: TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+          controller: _tabController,
+          children: [
+
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(height: 10,),
+                  Pills(),
+                  SizedBox(height: 20,),
+                  Pills(),
+                  SizedBox(height: 20,),
+
+
+                ],
+              ),
+            ),
+
+            Center(child: Text("Business Info", style: TextStyle(color: Colors.white.withOpacity(0.1)),)),
+            Center(child: Text("Business Info")),
+            Center(child: Text("Security"))
+          ],
+        ),
+      ):
+
+
+
+
+      Expanded(
             child: TabBarView(
 //              physics: AlwaysScrollableScrollPhysics(),
               controller: _tabController,
@@ -291,6 +426,50 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
     ) ,
     );
   }
+
+
+  Widget switches({bool toggler, String text}) {
+    return Container(
+      decoration: BoxDecoration(
+          color: isSwitched ? Colors.orange : kPrimaryColor,
+          borderRadius: BorderRadius.circular(20)
+      ),
+
+      width: 240,
+      height: 40,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Text( isSwitched ?  "Personal Account" : "Business Account"  , style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 13),),
+
+
+          Container(
+
+//              height: 25,
+//              width: 40,
+            child:Switch(
+
+              value: isSwitched,
+              onChanged: (value) {
+                setState(() {
+                  isSwitched = value;
+                  print(isSwitched);
+                });
+              },
+              inactiveTrackColor: Colors.white,
+              inactiveThumbColor: kPrimaryColor,
+              activeTrackColor: Colors.white,
+              activeColor: Colors.orange,
+            ),
+          )
+
+        ],
+      ),
+    );
+  }
+
+
+
 }
 
 class Pills extends StatelessWidget {
