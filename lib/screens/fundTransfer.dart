@@ -105,7 +105,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
               children: [
 
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -257,7 +257,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
 
   Widget otherBankWidget(){
     return  Container(
-      height: MediaQuery.of(context).size.height * 0.8,
+
       child: Column(
 //                        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
