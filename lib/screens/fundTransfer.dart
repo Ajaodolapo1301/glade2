@@ -485,7 +485,11 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
             height: 20,
           ),
 
-          Text("Select Beneficiary", style: TextStyle(color: kPrimaryColor),),
+          InkWell(
+              onTap: (){
+
+              },
+              child: Text("Select Beneficiary", style: TextStyle(color: kPrimaryColor,fontWeight: FontWeight.bold),)),
 
           SizedBox(
             height: 20,
@@ -497,7 +501,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
               }
             },
             child: Container(
-              margin: EdgeInsets.only(bottom: 50, right: 20, left: 20),
+//              margin: EdgeInsets.only(bottom: 50, right: 10, left: 10),
               width: double.infinity,
               height: 60,
               decoration: BoxDecoration(
@@ -705,7 +709,12 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
             height: 20,
           ),
 
-          Text("Select Beneficiary", style: TextStyle(color: kPrimaryColor),),
+          InkWell(
+            onTap: (){
+
+
+            },
+              child: Text("Select Beneficiary", style: TextStyle(color: kPrimaryColor,fontWeight: FontWeight.bold),)),
 
           SizedBox(
             height: 20,
@@ -717,7 +726,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
               }
             },
             child: Container(
-              margin: EdgeInsets.only(bottom: 50, right: 20, left: 20),
+//              margin: EdgeInsets.only(bottom: 50, right: 20, left: 20),
               width: double.infinity,
               height: 60,
               decoration: BoxDecoration(

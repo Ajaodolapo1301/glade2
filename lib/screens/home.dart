@@ -367,12 +367,14 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 
 
-    bottomNavigationBar:  BottomNavigationBar(
+    bottomNavigationBar: isSwitched
+        ?  BottomNavigationBar(
 
 //      currentIndex: _selectedIndex,
-      selectedItemColor: Color(0xffDEC489),
-      selectedIconTheme: IconThemeData(color:Color(0xffDEC489) ),
-
+      selectedItemColor: Colors.blueGrey,
+      selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
+      unselectedItemColor: Colors.blueGrey ,
+      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
 
       iconSize: 30.0,
 //      onTap: (int index){
@@ -389,29 +391,137 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
         ),
 
         BottomNavigationBarItem(
-          icon: IconButton(icon: Icon(Icons.home),),
-          activeIcon:IconButton(icon: Icon(Icons.home),),
+
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+        ),
+
+        BottomNavigationBarItem(
+
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+        ),
+        BottomNavigationBarItem(
+
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+        ),
+
+
+
+
+
+
+
+
+//        BottomNavigationBarItem(
+//          icon: SvgPicture.asset("images/election.svg", width: 30, color: Color(0xff707070)),
+//          activeIcon:  SvgPicture.asset("images/election.svg", width: 30, color:Color(0xffDEC489)),
+//          title: Text('Vote', style: TextStyle(fontSize: 15)),
+//        ),
+//        BottomNavigationBarItem(
+//          icon: SvgPicture.asset("images/download.svg", width: 30, color: Color(0xff707070)),
+//          activeIcon:SvgPicture.asset("images/download.svg", width: 30,color:Color(0xffDEC489)),
+//          title: Text('Dream Feed', style: TextStyle(fontSize: 15, color: Color(0xffDEC489))),
+//        ),
+//        BottomNavigationBarItem(
+//          icon: SvgPicture.asset("images/user.svg",  width: 25, color: Color(0xff707070)),
+//          activeIcon: SvgPicture.asset("images/user.svg", width: 25,  color: Color(0xffDEC489)) ,
+//          title: Text('Profile'),
+//        ),
+//        BottomNavigationBarItem(
+//          icon: SvgPicture.asset("images/settings.svg",color: Color(0xff707070),  width: 25),
+//
+//          activeIcon: SvgPicture.asset("images/settings.svg",color: Color(0xffDEC489),  width: 25),
+//          title: Text('Settings'),
+//        ),
+
+      ],
+
+    )  :BottomNavigationBar(
+
+//      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.blueGrey,
+      selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
+      unselectedItemColor: Colors.blueGrey ,
+      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
+
+      iconSize: 30.0,
+//      onTap: (int index){
+//        setState(() {
+//          _selectedIndex = index;
+//        });
+//      },
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Image.asset("images/bankmoney.png"),
+          activeIcon:Image.asset("images/bankmoney.png"),
 
           title: Text('Home',),
         ),
 
         BottomNavigationBarItem(
-          icon: IconButton(icon: Icon(Icons.home),),
-          activeIcon:IconButton(icon: Icon(Icons.home),),
 
-          title: Text('Home',),
+          icon: InkWell(
+            onTap: (){
+              Navigator.push(context, FadeRoute(page: Fund()));
+            },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+        ),
+
+        BottomNavigationBarItem(
+
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
-          icon: IconButton(icon: Icon(Icons.home),),
-          activeIcon:IconButton(icon: Icon(Icons.home),),
 
-          title: Text('Home',),
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
-          icon: IconButton(icon: Icon(Icons.home),),
-          activeIcon:IconButton(icon: Icon(Icons.home),),
 
-          title: Text('Home',),
+          icon: InkWell(
+              onTap: (){
+                Navigator.push(context, FadeRoute(page: Fund()));
+              },
+              child: Image.asset("images/bankmoney.png")),
+          activeIcon:Image.asset("images/bankmoney.png"),
+
+          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
         ),
 
 
@@ -503,9 +613,9 @@ class Pills extends StatelessWidget {
     return Center(
       child: Container(
 
-        margin: EdgeInsets.only(left: 10, right: 10),
+        margin: EdgeInsets.only(left: 15, right: 15),
 
-        height: 100,
+        height: 90,
         decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10)
@@ -514,7 +624,7 @@ class Pills extends StatelessWidget {
 
 
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding: const EdgeInsets.only(left: 20, right: 10),
           child: Row(
 
             children: <Widget>[
