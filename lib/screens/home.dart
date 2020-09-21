@@ -38,22 +38,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
   Widget build(BuildContext context) {
 
 
-//
-//    int _tabIndex = 0;
-//
-//    var tab = TabController(
-//        initialIndex: 0,
-//        length: 4,
-//        vsync: this
-//    );
-//
-//
-//    void _handleTabSelection(){
-//      setState(() {
-//        tab.index = _tabIndex;
-//      });
-//    }
-//    tab.addListener(_handleTabSelection);
+
 
     return Scaffold(
       key: _scaffoldKey,
@@ -73,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
         width: double.infinity,
 
         child: Padding(
-          padding:  EdgeInsets.only(left: 10, top: 20, right: 0),
+          padding:  EdgeInsets.only(left: 10, top: 20, right: 10),
           child: Column(
 
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,9 +79,11 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                         )
                ),
                   ),
-                  IconButton(icon:      Icon(Icons.notifications, color: Colors.white, size: 30,), onPressed: ()=>
-
-                      Navigator.push(context, FadeRoute(page: Fund())),
+                  InkWell(
+                    onTap: (){
+                          Navigator.push(context, FadeRoute(page: Fund()));
+                    },
+                    child: Image.asset("images/notif.png"),
                   )
 
                 ],
@@ -284,9 +271,23 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 10,),
-                  Pills(),
+                  Pills(
+                    image: "images/budget.png",
+                    text: "Budget",
+                    subText: "Set a limit to your spending",
+                  ),
                   SizedBox(height: 20,),
-                  Pills(),
+                  Pills(
+                    image: "images/savings.png",
+                    text: "Savings",
+                    subText:"Put away money for small and large project or goals",
+                  ),
+                  SizedBox(height: 20,),
+                  Pills(
+                    image: "images/personal.png",
+                    text: "Fund Personal Account",
+                    subText: "Fund your Account with just a click",
+                  ),
                   SizedBox(height: 20,),
 
 
@@ -315,16 +316,36 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: 10,),
-                Pills(),
+                      Pills(
+                        image: "images/fundtrans.png",
+                        text: "Fund Transfer",
+                        subText: "Set a limit to your spending",
+                      ),
                       SizedBox(height: 20,),
-                      Pills(),
+                      Pills(
+                        image: "images/pos.png",
+                        text: "Customers",
+                        subText: "Set a limit to your spending",
+                      ),
                       SizedBox(height: 20,),
-                      Pills(),
+                      Pills(
+                        image: "images/budget.png",
+                        text: "Budget",
+                        subText: "Set a limit to your spending",
+                      ),
                       SizedBox(height: 20,),
-                      Pills(),
+                      Pills(
+                        image: "images/budget.png",
+                        text: "Invoice",
+                        subText: "Set a limit to your spending",
+                      ),
 
                       SizedBox(height: 20,),
-                      Pills(),
+                      Pills(
+                        image: "images/pos.png",
+                        text: "Pos",
+                        subText: "Set a limit to your spending",
+                      ),
 
                     ],
                   ),
@@ -346,7 +367,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 
 
-    bottomNavigationBar:BottomNavigationBar(
+    bottomNavigationBar:  BottomNavigationBar(
 
 //      currentIndex: _selectedIndex,
       selectedItemColor: Color(0xffDEC489),
@@ -361,8 +382,8 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 //      },
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: IconButton(icon: Icon(Icons.home),),
-          activeIcon:IconButton(icon: Icon(Icons.home),),
+          icon: Image.asset("images/bankmoney.png"),
+          activeIcon:Image.asset("images/bankmoney.png"),
 
           title: Text('Home',),
         ),
@@ -473,10 +494,10 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 }
 
 class Pills extends StatelessWidget {
-  const Pills({
-    Key key,
-  }) : super(key: key);
-
+  final image;
+  final text;
+  final subText;
+  Pills({this.text, this.image, this.subText});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -497,14 +518,14 @@ class Pills extends StatelessWidget {
           child: Row(
 
             children: <Widget>[
-              Image.asset("images/bankmoney.png"),
-              SizedBox(width: 30,),
+              Image.asset(image),
+              SizedBox(width: 25,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Account Insight", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                  Text("Get detailed insight into your activity" , style: TextStyle(color: greyText, ),)
+                  Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  Container(child: Text(subText , style: TextStyle(color: greyText, ),overflow: TextOverflow.ellipsis,))
                 ],
               ),
               Spacer(),

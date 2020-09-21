@@ -146,9 +146,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.white,),
+                                            child: Icon(Icons.check, size: 15, color: Colors.blueGrey,),
                                             decoration: BoxDecoration(
-                                                color: kPrimaryColor,
+                                                color: Colors.white,
                                                 shape: BoxShape.circle
                                             ),
                                           ),
@@ -159,7 +159,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           children: <Widget>[
                                             Container(
                                                 height:40,
-                                                child: Image.asset("images/glademoney.png", fit: BoxFit.cover,)),
+                                                child: Image.asset("images/glade.png", fit: BoxFit.cover,)),
                                             SizedBox(height: 15,),
                                             Text("GladPay Account", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),)
                                           ],
@@ -202,9 +202,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.white,),
+                                            child: Icon(Icons.check, size: 15, color: Colors.blueGrey,),
                                             decoration: BoxDecoration(
-                                                color: kPrimaryColor,
+                                                color: Colors.white,
                                                 shape: BoxShape.circle
                                             ),
                                           ),
@@ -215,7 +215,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           children: <Widget>[
                                             Container(
                                                 height:40,
-                                                child: Image.asset("images/bankmoney.png", fit: BoxFit.cover,)),
+                                                child: Image.asset("images/other.png", fit: BoxFit.cover,)),
                                             SizedBox(height: 15,),
                                             Text("other banks", style: TextStyle(fontSize: 16 ,fontWeight: FontWeight.bold),)
                                           ],
