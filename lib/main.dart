@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glade_app/screens/fundTransfer.dart';
-import 'package:glade_app/screens/home.dart';
+
 
 void main() => runApp(MyApp());
 
