@@ -58,6 +58,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
       child: Scaffold(
 
         appBar: AppBar(
+          leading: IconButton(icon: Icon(Icons.arrow_back, color: kPrimaryColor,),),
           backgroundColor: Colors.white,
           title: Text("Fund Transfer", style: TextStyle(color: Colors.black),),
         ),
@@ -74,23 +75,23 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
             child: TabBar(
               unselectedLabelColor:Colors.black ,
 
-              labelStyle: TextStyle(color: Colors.white),
+              labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
 
               isScrollable: true,
               controller: _tabController,
 //                unselectedLabelColor: Colors.black,
               indicator: RectangularIndicator(
                 color: kPrimaryColor,
-                bottomLeftRadius: 15,
-                bottomRightRadius: 15,
-                topLeftRadius: 15,
-                topRightRadius: 15,
+                bottomLeftRadius: 10,
+                bottomRightRadius: 10,
+                topLeftRadius: 10,
+                topRightRadius: 10,
 
             ),
               tabs: <Widget>[
-                  Text('Transfer', style: TextStyle(fontSize:20 , ),),
-                Text('Bulk Transfer',  style: TextStyle(fontSize:20) ,),
-                Text('History',  style: TextStyle(fontSize: 20,),),
+                  Text('Transfer'),
+                Text('Bulk Transfer'),
+                Text('History'),
               ],
             ),
           ),
@@ -111,7 +112,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
-                        Text("Transfer Mode"),
+                        Text("Transfer Mode", style: TextStyle(fontWeight: FontWeight.bold),),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
@@ -145,9 +146,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.green,),
+                                            child: Icon(Icons.check, size: 15, color: Colors.white,),
                                             decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: kPrimaryColor,
                                                 shape: BoxShape.circle
                                             ),
                                           ),
@@ -158,9 +159,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           children: <Widget>[
                                             Container(
                                                 height:40,
-                                                child: Image.asset("images/bankmoney.png", fit: BoxFit.cover,)),
+                                                child: Image.asset("images/glademoney.png", fit: BoxFit.cover,)),
                                             SizedBox(height: 15,),
-                                            Text("GladPay Account", style: TextStyle(fontSize: 16),)
+                                            Text("GladPay Account", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),)
                                           ],
                                         ),
                                       ),
@@ -201,9 +202,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.green,),
+                                            child: Icon(Icons.check, size: 15, color: Colors.white,),
                                             decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: kPrimaryColor,
                                                 shape: BoxShape.circle
                                             ),
                                           ),
@@ -216,7 +217,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                                 height:40,
                                                 child: Image.asset("images/bankmoney.png", fit: BoxFit.cover,)),
                                             SizedBox(height: 15,),
-                                            Text("other banks", style: TextStyle(fontSize: 16),)
+                                            Text("other banks", style: TextStyle(fontSize: 16 ,fontWeight: FontWeight.bold),)
                                           ],
                                         ),
                                       )
@@ -239,8 +240,8 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 ),
 
 
-                Text("Second"),
-                Text("Thiord")
+                Center(child: Text("Bulk Transfer")),
+                Center(child: Text("History"))
               ],
             ),
           )
@@ -256,8 +257,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
 
 
   Widget otherBankWidget(){
-    return  Container(
-
+    return  SingleChildScrollView(
       child: Column(
 //                        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -269,7 +269,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Select Your Bank "),
+                Text("Select Your Bank ",style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -315,7 +315,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                   height: 20,
                 ),
 
-                Text("Account Number"),
+                Text("Account Number", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -360,7 +360,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Account Name"),
+                Text("Account Name",style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -398,7 +398,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Amount"),
+                Text("Amount", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -445,7 +445,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Narration "),
+                Text("Narration ", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -535,7 +535,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                   height: 20,
                 ),
 
-                Text("Account Number"),
+                Text("Account Number" ,style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -580,7 +580,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Account Name"),
+                Text("Account Name", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -618,7 +618,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Amount"),
+                Text("Amount", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
@@ -665,7 +665,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                 SizedBox(
                   height: 20,
                 ),
-                Text("Narration "),
+                Text("Narration ", style: TextStyle(fontWeight: FontWeight.bold),),
                 Center(
                   child: Container(
                     width: 370,
