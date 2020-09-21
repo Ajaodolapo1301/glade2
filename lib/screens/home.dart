@@ -385,7 +385,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Image.asset("images/bankmoney.png"),
-          activeIcon:Image.asset("images/bankmoney.png"),
+          activeIcon:Image.asset("images/glade.png"),
 
           title: Text('Home',),
         ),
