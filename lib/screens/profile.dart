@@ -59,7 +59,7 @@ class _ProfileState extends State<Profile>  with SingleTickerProviderStateMixin 
       child: Scaffold(
 
         appBar: AppBar(
-            leading: IconButton(icon: Icon(Icons.arrow_back, color: kPrimaryColor,),),
+            leading: IconButton(icon: Icon(Icons.arrow_back, color: kPrimaryColor,), onPressed: ()=>Navigator.pop(context),),
           backgroundColor: Colors.white,
           title: Text("Profile", style: TextStyle(color: Colors.black),),
         ),

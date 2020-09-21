@@ -58,7 +58,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
       child: Scaffold(
 
         appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.arrow_back, color: kPrimaryColor,),),
+          leading: IconButton(icon: Icon(Icons.arrow_back, color: kPrimaryColor,), onPressed: ()=>Navigator.pop(context),),
           backgroundColor: Colors.white,
           title: Text("Fund Transfer", style: TextStyle(color: Colors.black),),
         ),
