@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:glade_app/screens/fundTransfer.dart';
+
 import 'package:glade_app/screens/home.dart';
-import 'package:glade_app/screens/profile.dart';
+import 'package:glade_app/screens/splashPage.dart';
+
 import 'package:glade_app/view_model/AppState.dart';
 import 'package:glade_app/view_model/bank.dart';
 import 'package:hive/hive.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'BASISGROTESQUEPRO-REGULAR',
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(),
+        home: SplashPage(),
       ),
     );
   }

@@ -3,12 +3,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:glade_app/animation/fadeRoute.dart';
+
 import 'package:glade_app/constants/colorConstants.dart';
-import 'package:glade_app/reusables/customIndicator.dart';
-import 'package:glade_app/utils/CustomUtils.dart';
+
+
 import 'package:glade_app/view_model/bank.dart';
-import 'package:progress_dialog/progress_dialog.dart';
+
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 
@@ -28,7 +28,7 @@ class _ProfileState extends State<Profile>  with SingleTickerProviderStateMixin 
   final _formkey = GlobalKey<FormState>();
 
   TabController _tabController;
-  int _selectedCard = 0;
+
   BankState bankState;
   TextEditingController refCode = new TextEditingController();
   TextEditingController fullName = new TextEditingController();
@@ -40,11 +40,7 @@ class _ProfileState extends State<Profile>  with SingleTickerProviderStateMixin 
   bool gladepay = true;
   bool otherBank = false;
 
-  ProgressDialog pd;
-  void showPdDialog() async {
-    pd = await CustomUtils.showProgressDialog(
-        context, "Processing...Please wait!");
-  }
+
 
 
   @override
@@ -115,11 +111,12 @@ class _ProfileState extends State<Profile>  with SingleTickerProviderStateMixin 
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             CircleAvatar(
+                        backgroundColor: Colors.white,
                             backgroundImage: AssetImage("images/avatar.png"),
                               radius: 40,
                             ),
                             SizedBox(height: 5,),
-                            Text("sum davon"),
+                            Text("Sum davon" , style: TextStyle(fontWeight: FontWeight.w500),),
                             Text("Square Motion", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                           ],
                         ),

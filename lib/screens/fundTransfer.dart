@@ -35,7 +35,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
   TextEditingController amount = new TextEditingController();
   TextEditingController narration = new TextEditingController();
   var result;
-  bool _visible = false;
+
     bool gladepay = true;
     bool otherBank = false;
 
@@ -122,7 +122,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                 onTap: (){
                                   setState(() {
                                     gladepay = true;
-                                    otherBank = false;;
+                                    otherBank = false;
                                   });
                                   print("1");
 
@@ -343,7 +343,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
 ////                                                        getName();
 //                          }
 //                        },
-                      autofocus: true,
+
                       keyboardType: TextInputType.number,
                       inputFormatters: [
                         WhitelistingTextInputFormatter.digitsOnly,
@@ -557,7 +557,7 @@ child: Column(
                       width: 300,
                       child: TextFormField(
                         controller: accountNum,
-                        autofocus: true,
+
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           WhitelistingTextInputFormatter.digitsOnly,
@@ -596,7 +596,7 @@ child: Column(
                         readOnly: true,
                         controller: accountName,
                         onTap: () {},
-                        autofocus: true,
+
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (!(value.length > 5 && value.isNotEmpty)) {

@@ -39,7 +39,7 @@ class Business extends StatelessWidget {
               Pills(
                 image: "images/pos.png",
                 text: "Customers",
-                subText: "Set a limit to your spending",
+                subText: "Set your customers details",
               ),
               SizedBox(height: 20,),
               Pills(
@@ -51,14 +51,14 @@ class Business extends StatelessWidget {
               Pills(
                 image: "images/budget.png",
                 text: "Invoice",
-                subText: "Set a limit to your spending",
+                subText: "Send invoice to customers and get paid",
               ),
 
               SizedBox(height: 20,),
               Pills(
                 image: "images/pos.png",
                 text: "Pos",
-                subText: "Set a limit to your spending",
+                subText: "Access point of sales with ease",
               ),
 
             ],

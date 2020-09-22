@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/constants/colorConstants.dart';
@@ -8,18 +5,12 @@ import 'package:glade_app/reusables/personals.dart';
 import 'package:glade_app/reusables/businessNav.dart';
 import 'package:glade_app/reusables/business.dart';
 import 'package:glade_app/reusables/personalNav.dart';
-
-import 'package:glade_app/screens/fundTransfer.dart';
 import 'package:glade_app/screens/profile.dart';
-
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 
 
 class MyHomePage extends StatefulWidget {
-
-
-
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
