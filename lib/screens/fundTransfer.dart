@@ -2,9 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:glade_app/animation/fadeRoute.dart';
+
 import 'package:glade_app/constants/colorConstants.dart';
-import 'package:glade_app/reusables/customIndicator.dart';
+
 import 'package:glade_app/utils/CustomUtils.dart';
 import 'package:glade_app/view_model/bank.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -87,7 +87,6 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                 bottomRightRadius: 10,
                 topLeftRadius: 10,
                 topRightRadius: 10,
-
             ),
               tabs: <Widget>[
                   Text('Transfer'),
@@ -236,7 +235,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
 
 
             AnimatedSwitcher(
-              duration: Duration(milliseconds:200),
+              duration: Duration(milliseconds:500),
 
           child:   otherBank ?
 

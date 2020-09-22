@@ -32,7 +32,7 @@ class Pills extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  Text(text, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey, fontSize: 20),),
                   Container(child: Text(subText , style: TextStyle(color: greyText, ),overflow: TextOverflow.ellipsis,))
                 ],
               ),

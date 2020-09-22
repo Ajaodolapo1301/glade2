@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/reusables/pills.dart';
+import 'package:glade_app/screens/fundTransfer.dart';
 
 
 
@@ -25,10 +27,13 @@ class Business extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: 10,),
-              Pills(
-                image: "images/fundtrans.png",
-                text: "Fund Transfer",
-                subText: "Set a limit to your spending",
+              InkWell(
+                onTap: ()=> Navigator.push(context, FadeRoute(page: Fund())),
+                child: Pills(
+                  image: "images/fundtrans.png",
+                  text: "Fund Transfer",
+                  subText: "Set a limit to your spending",
+                ),
               ),
               SizedBox(height: 20,),
               Pills(

@@ -12,13 +12,11 @@ class Personal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-
         SingleChildScrollView(
           child: Column(
             key: UniqueKey(),
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 10,),
               Pills(
                 image: "images/budget.png",
                 text: "Budget",
@@ -28,7 +26,7 @@ class Personal extends StatelessWidget {
               Pills(
                 image: "images/savings.png",
                 text: "Savings",
-                subText:"Put away money for small and large project or goals",
+                subText:"Put away money  ",
               ),
               SizedBox(height: 20,),
               Pills(
@@ -36,6 +34,8 @@ class Personal extends StatelessWidget {
                 text: "Fund Personal Account",
                 subText: "Fund your Account with just a click",
               ),
+
+
               SizedBox(height: 20,),
 
 

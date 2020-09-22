@@ -1,6 +1,6 @@
 
 
-import 'package:custom_switch/custom_switch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/constants/colorConstants.dart';
@@ -8,10 +8,10 @@ import 'package:glade_app/reusables/personals.dart';
 import 'package:glade_app/reusables/businessNav.dart';
 import 'package:glade_app/reusables/business.dart';
 import 'package:glade_app/reusables/personalNav.dart';
-import 'package:glade_app/reusables/pills.dart';
+
 import 'package:glade_app/screens/fundTransfer.dart';
 import 'package:glade_app/screens/profile.dart';
-import 'package:hive/hive.dart';
+
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 
@@ -123,8 +123,9 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                     Spacer(),
            isSwitched ?     Container(
              margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
-             height: 35,
+
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
                     height:35,
@@ -134,42 +135,12 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                       borderRadius: BorderRadius.all(Radius.circular(10))
                     ),
                       child: Center(child: Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)))),
-                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)),
-                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)),
-                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,))
+                  Text("Overview", style: TextStyle(color: Colors.black.withOpacity(0.2), fontWeight: FontWeight.w500, fontSize:16 ,)),
+                  Text("Payment", style: TextStyle(color: Colors.black.withOpacity(0.2), fontWeight: FontWeight.w500, fontSize:16 ,)),
+                  Text("Business", style: TextStyle(color: Colors.black.withOpacity(0.2), fontWeight: FontWeight.w500, fontSize:16 ,))
                 ],
               ),
            ):
-
-
-
-//           TabBar(
-//
-//
-//             unselectedLabelColor:Colors.black.withOpacity(0.2) ,
-//
-//             labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
-//
-//
-//             controller: _tabController,
-//             isScrollable: true,
-//             indicator: RectangularIndicator(
-//               color: Colors.orange,
-//               bottomLeftRadius: 10,
-//               bottomRightRadius: 10,
-//               topLeftRadius: 10,
-//               topRightRadius: 10,
-//
-//             ),
-//             tabs: <Widget>[
-//               Text('Personal'),
-//               Text("Seller's Tools"),
-//               Text('Payments'),
-//               Text('Business Management'),
-//             ],
-//           ),
-
-
 
 
 
@@ -229,17 +200,20 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                       children: <Widget>[
                  isClicked  ?   Text("000000000000",  style: TextStyle(
                      fontSize: 34,
+                     color: Colors.blueGrey,
                      fontFamily: "SFPro",
                      fontWeight: FontWeight.bold)) :  Text.rich(TextSpan(children: [
                           TextSpan(
                               text: "NGN, ",
                               style: TextStyle(
+                                color: Colors.blueGrey,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16, fontFamily: "SFPro", )),
                           TextSpan(
                               text: "0.00",
                               style: TextStyle(
                                   fontSize: 34,
+                                  color: Colors.blueGrey,
                                   fontFamily: "SFPro",
                                   fontWeight: FontWeight.bold)),
                         ])),
