@@ -4,6 +4,8 @@ import 'package:glade_app/reusables/pills.dart';
 
 
 
+
+
 class Business extends StatelessWidget {
   const Business({
     Key key,
@@ -15,12 +17,8 @@ class Business extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-
-
-      physics: NeverScrollableScrollPhysics(),
       controller: _tabController,
-      children: [
-
+      children: <Widget>[
         SingleChildScrollView(
           child: Column(
             key: UniqueKey(),
@@ -28,33 +26,48 @@ class Business extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 10,),
               Pills(
+                image: "images/fundtrans.png",
+                text: "Fund Transfer",
+                subText: "Set a limit to your spending",
+              ),
+              SizedBox(height: 20,),
+              Pills(
+                image: "images/pos.png",
+                text: "Customers",
+                subText: "Set a limit to your spending",
+              ),
+              SizedBox(height: 20,),
+              Pills(
                 image: "images/budget.png",
                 text: "Budget",
                 subText: "Set a limit to your spending",
               ),
               SizedBox(height: 20,),
               Pills(
-                image: "images/savings.png",
-                text: "Savings",
-                subText:"Put away money for small and large project or goals",
+                image: "images/budget.png",
+                text: "Invoice",
+                subText: "Set a limit to your spending",
               ),
+
               SizedBox(height: 20,),
               Pills(
-                image: "images/personal.png",
-                text: "Fund Personal Account",
-                subText: "Fund your Account with just a click",
+                image: "images/pos.png",
+                text: "Pos",
+                subText: "Set a limit to your spending",
               ),
-              SizedBox(height: 20,),
-
 
             ],
           ),
         ),
-
-        Center(child: Text("Business Info", style: TextStyle(color: Colors.white.withOpacity(0.1)),)),
+        Center(child: Text("Business Info")),
         Center(child: Text("Business Info")),
         Center(child: Text("Security"))
+
       ],
     );
+
+
+
+
   }
 }

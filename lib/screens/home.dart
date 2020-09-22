@@ -4,9 +4,9 @@ import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/constants/colorConstants.dart';
-import 'package:glade_app/reusables/business.dart';
+import 'package:glade_app/reusables/personals.dart';
 import 'package:glade_app/reusables/businessNav.dart';
-import 'package:glade_app/reusables/personal.dart';
+import 'package:glade_app/reusables/business.dart';
 import 'package:glade_app/reusables/personalNav.dart';
 import 'package:glade_app/reusables/pills.dart';
 import 'package:glade_app/screens/fundTransfer.dart';
@@ -124,41 +124,61 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
            isSwitched ?     Container(
              margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
              height: 35,
-             child:   TabBar(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    height:35,
+                    width: 100,
+                    decoration:BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                      child: Center(child: Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)))),
+                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)),
+                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,)),
+                  Text("Personal", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,))
+                ],
+              ),
+           ):
 
 
-               unselectedLabelColor:Colors.black.withOpacity(0.2) ,
 
-               labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
+//           TabBar(
+//
+//
+//             unselectedLabelColor:Colors.black.withOpacity(0.2) ,
+//
+//             labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
+//
+//
+//             controller: _tabController,
+//             isScrollable: true,
+//             indicator: RectangularIndicator(
+//               color: Colors.orange,
+//               bottomLeftRadius: 10,
+//               bottomRightRadius: 10,
+//               topLeftRadius: 10,
+//               topRightRadius: 10,
+//
+//             ),
+//             tabs: <Widget>[
+//               Text('Personal'),
+//               Text("Seller's Tools"),
+//               Text('Payments'),
+//               Text('Business Management'),
+//             ],
+//           ),
 
 
-               controller: _tabController,
-               isScrollable: true,
-               indicator: RectangularIndicator(
-                 color: Colors.orange,
-                 bottomLeftRadius: 10,
-                 bottomRightRadius: 10,
-                 topLeftRadius: 10,
-                 topRightRadius: 10,
 
-               ),
-               tabs: <Widget>[
-                 Text('Personal'),
-                 Text("Seller's Tools"),
-                 Text('Payments'),
-                 Text('Business Management'),
-               ],
-             ),
-           ):      Container(
+
+
+           Container(
                       margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
                       height: 35,
                       child:   TabBar(
-
                         unselectedLabelColor:Colors.black ,
-
                         labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize:16 ,),
-
-
                         controller: _tabController,
                         isScrollable: true,
                         indicator: RectangularIndicator(
@@ -185,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           ),
         ),
 
-
+// CENTER BOX
         Positioned.fill(
           top: 20,
           child: Align(
@@ -268,12 +288,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
       Expanded(
         child: AnimatedSwitcher(
           child:
-          isSwitched ?         Business(tabController: _tabController):
-
-
-
-
-    Personal(tabController: _tabController),
+          isSwitched ?  Personal() : Business(tabController: _tabController,),
 
           duration: Duration(milliseconds: 500),
         ),
