@@ -20,14 +20,14 @@ class Fund extends StatefulWidget {
 
 
 
-class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
+class _FundState extends State<Fund>  with TickerProviderStateMixin {
 
 
 
   final _formkey = GlobalKey<FormState>();
-
+  final _formkeys = GlobalKey<FormState>();
   TabController _tabController;
-  int _selectedCard = 0;
+
   BankState bankState;
   TextEditingController bank = new TextEditingController();
   TextEditingController accountNum = new TextEditingController();
@@ -35,7 +35,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
   TextEditingController amount = new TextEditingController();
   TextEditingController narration = new TextEditingController();
   var result;
-
+  bool _visible = false;
     bool gladepay = true;
     bool otherBank = false;
 
@@ -49,6 +49,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
+
     super.initState();
   }
   @override
@@ -177,6 +178,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
                                 onTap: (){
                                   setState(() {
                                     gladepay = false;
+
                                     otherBank = true;
                                   });
 
@@ -233,7 +235,13 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
 
 
 
-           otherBank ?     otherBankWidget()  : gladePayWidget(),
+            AnimatedSwitcher(
+              duration: Duration(milliseconds:200),
+
+          child:   otherBank ?
+
+               otherBankWidget() : gladePayWidget(),
+           )
                       ],
                     ),
                   ),
@@ -258,8 +266,9 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
 
   Widget otherBankWidget(){
     return  SingleChildScrollView(
+
       child: Column(
-//                        crossAxisAlignment: CrossAxisAlignment.center,
+        key: ValueKey("others"),
         children: <Widget>[
           Form(
             key: _formkey,
@@ -526,12 +535,12 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
 
   Widget gladePayWidget(){
     return  Container(
-
-      child: Column(
+      key: ValueKey("glade"),
+child: Column(
 //                        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Form(
-            key: _formkey,
+            key: _formkeys,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -721,7 +730,7 @@ class _FundState extends State<Fund>  with SingleTickerProviderStateMixin {
           ),
           InkWell(
             onTap: () {
-              if (_formkey.currentState.validate()) {
+              if (_formkeys.currentState.validate()) {
 //                                            Navigator.push(context, FadeRoute(page: Last()));
               }
             },

@@ -4,6 +4,11 @@ import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:glade_app/animation/fadeRoute.dart';
 import 'package:glade_app/constants/colorConstants.dart';
+import 'package:glade_app/reusables/business.dart';
+import 'package:glade_app/reusables/businessNav.dart';
+import 'package:glade_app/reusables/personal.dart';
+import 'package:glade_app/reusables/personalNav.dart';
+import 'package:glade_app/reusables/pills.dart';
 import 'package:glade_app/screens/fundTransfer.dart';
 import 'package:glade_app/screens/profile.dart';
 import 'package:hive/hive.dart';
@@ -120,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
              margin: EdgeInsets.only(left: 20, bottom: 20, right: 20),
              height: 35,
              child:   TabBar(
-               onTap: null,
+
 
                unselectedLabelColor:Colors.black.withOpacity(0.2) ,
 
@@ -260,103 +265,20 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           SizedBox(
             height: 20,
           ),
-      isSwitched ?         Expanded(
-        child: TabBarView(
-              physics: NeverScrollableScrollPhysics(),
-          controller: _tabController,
-          children: [
-
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 10,),
-                  Pills(
-                    image: "images/budget.png",
-                    text: "Budget",
-                    subText: "Set a limit to your spending",
-                  ),
-                  SizedBox(height: 20,),
-                  Pills(
-                    image: "images/savings.png",
-                    text: "Savings",
-                    subText:"Put away money for small and large project or goals",
-                  ),
-                  SizedBox(height: 20,),
-                  Pills(
-                    image: "images/personal.png",
-                    text: "Fund Personal Account",
-                    subText: "Fund your Account with just a click",
-                  ),
-                  SizedBox(height: 20,),
-
-
-                ],
-              ),
-            ),
-
-            Center(child: Text("Business Info", style: TextStyle(color: Colors.white.withOpacity(0.1)),)),
-            Center(child: Text("Business Info")),
-            Center(child: Text("Security"))
-          ],
-        ),
-      ):
-
-
-
-
       Expanded(
-            child: TabBarView(
-//              physics: AlwaysScrollableScrollPhysics(),
-              controller: _tabController,
-              children: [
+        child: AnimatedSwitcher(
+          child:
+          isSwitched ?         Business(tabController: _tabController):
 
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: 10,),
-                      Pills(
-                        image: "images/fundtrans.png",
-                        text: "Fund Transfer",
-                        subText: "Set a limit to your spending",
-                      ),
-                      SizedBox(height: 20,),
-                      Pills(
-                        image: "images/pos.png",
-                        text: "Customers",
-                        subText: "Set a limit to your spending",
-                      ),
-                      SizedBox(height: 20,),
-                      Pills(
-                        image: "images/budget.png",
-                        text: "Budget",
-                        subText: "Set a limit to your spending",
-                      ),
-                      SizedBox(height: 20,),
-                      Pills(
-                        image: "images/budget.png",
-                        text: "Invoice",
-                        subText: "Set a limit to your spending",
-                      ),
 
-                      SizedBox(height: 20,),
-                      Pills(
-                        image: "images/pos.png",
-                        text: "Pos",
-                        subText: "Set a limit to your spending",
-                      ),
 
-                    ],
-                  ),
-                ),
 
-                Center(child: Text("Business Info")),
-                Center(child: Text("Business Info")),
-                Center(child: Text("Security"))
-              ],
-            ),
-          )
+    Personal(tabController: _tabController),
+
+          duration: Duration(milliseconds: 500),
+        ),
+      )
+
 
 
     ]
@@ -367,193 +289,11 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 
 
-    bottomNavigationBar: isSwitched
-        ?  BottomNavigationBar(
+    bottomNavigationBar: AnimatedSwitcher(
+     child:    isSwitched
+         ?  PersonalNavBar()  :BusinessNav(),
 
-//      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.blueGrey,
-      selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
-      unselectedItemColor: Colors.blueGrey ,
-      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
-
-      iconSize: 30.0,
-//      onTap: (int index){
-//        setState(() {
-//          _selectedIndex = index;
-//        });
-//      },
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Image.asset("images/bankmoney.png"),
-          activeIcon:Image.asset("images/glade.png"),
-
-          title: Text('Home',),
-        ),
-
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-
-
-
-
-
-
-
-
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/election.svg", width: 30, color: Color(0xff707070)),
-//          activeIcon:  SvgPicture.asset("images/election.svg", width: 30, color:Color(0xffDEC489)),
-//          title: Text('Vote', style: TextStyle(fontSize: 15)),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/download.svg", width: 30, color: Color(0xff707070)),
-//          activeIcon:SvgPicture.asset("images/download.svg", width: 30,color:Color(0xffDEC489)),
-//          title: Text('Dream Feed', style: TextStyle(fontSize: 15, color: Color(0xffDEC489))),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/user.svg",  width: 25, color: Color(0xff707070)),
-//          activeIcon: SvgPicture.asset("images/user.svg", width: 25,  color: Color(0xffDEC489)) ,
-//          title: Text('Profile'),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/settings.svg",color: Color(0xff707070),  width: 25),
-//
-//          activeIcon: SvgPicture.asset("images/settings.svg",color: Color(0xffDEC489),  width: 25),
-//          title: Text('Settings'),
-//        ),
-
-      ],
-
-    )  :BottomNavigationBar(
-
-//      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.blueGrey,
-      selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
-      unselectedItemColor: Colors.blueGrey ,
-      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
-
-      iconSize: 30.0,
-//      onTap: (int index){
-//        setState(() {
-//          _selectedIndex = index;
-//        });
-//      },
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Image.asset("images/bankmoney.png"),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Home',),
-        ),
-
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-            onTap: (){
-              Navigator.push(context, FadeRoute(page: Fund()));
-            },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-        BottomNavigationBarItem(
-
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
-          activeIcon:Image.asset("images/bankmoney.png"),
-
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
-        ),
-
-
-
-
-
-
-
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/election.svg", width: 30, color: Color(0xff707070)),
-//          activeIcon:  SvgPicture.asset("images/election.svg", width: 30, color:Color(0xffDEC489)),
-//          title: Text('Vote', style: TextStyle(fontSize: 15)),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/download.svg", width: 30, color: Color(0xff707070)),
-//          activeIcon:SvgPicture.asset("images/download.svg", width: 30,color:Color(0xffDEC489)),
-//          title: Text('Dream Feed', style: TextStyle(fontSize: 15, color: Color(0xffDEC489))),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/user.svg",  width: 25, color: Color(0xff707070)),
-//          activeIcon: SvgPicture.asset("images/user.svg", width: 25,  color: Color(0xffDEC489)) ,
-//          title: Text('Profile'),
-//        ),
-//        BottomNavigationBarItem(
-//          icon: SvgPicture.asset("images/settings.svg",color: Color(0xff707070),  width: 25),
-//
-//          activeIcon: SvgPicture.asset("images/settings.svg",color: Color(0xffDEC489),  width: 25),
-//          title: Text('Settings'),
-//        ),
-
-      ],
-
+      duration: Duration(milliseconds: 500),
     ) ,
     );
   }
@@ -603,47 +343,11 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 }
 
-class Pills extends StatelessWidget {
-  final image;
-  final text;
-  final subText;
-  Pills({this.text, this.image, this.subText});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-
-        margin: EdgeInsets.only(left: 15, right: 15),
-
-        height: 90,
-        decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(10)
-        ),
 
 
 
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 10),
-          child: Row(
 
-            children: <Widget>[
-              Image.asset(image),
-              SizedBox(width: 25,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                  Container(child: Text(subText , style: TextStyle(color: greyText, ),overflow: TextOverflow.ellipsis,))
-                ],
-              ),
-              Spacer(),
-              Icon(Icons.arrow_forward_ios, color:greyText ,)
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+
+
+
+
