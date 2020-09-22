@@ -13,7 +13,7 @@ class Pills extends StatelessWidget {
 
         margin: EdgeInsets.only(left: 15, right: 15),
 
-        height: 90,
+        height: 70,
         decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10)

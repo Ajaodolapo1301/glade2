@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
         width: double.infinity,
 
         child: Padding(
-          padding:  EdgeInsets.only(left: 10, top: 20, right: 10),
+          padding:  EdgeInsets.only(left: 10, top: 20, right: 20),
           child: Column(
 
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,12 +84,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
                         )
                ),
                   ),
-                  InkWell(
-                    onTap: (){
-                          Navigator.push(context, FadeRoute(page: Fund()));
-                    },
-                    child: Image.asset("images/notif.png"),
-                  )
+                  Image.asset("images/notif.png")
 
                 ],
               ),
@@ -259,6 +254,9 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           SizedBox(
             height: 20,
           ),
+
+
+//      tabBar view
       Expanded(
         child: AnimatedSwitcher(
           child:
@@ -267,9 +265,6 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           duration: Duration(milliseconds: 500),
         ),
       )
-
-
-
     ]
     ),
 
@@ -277,7 +272,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 
 
-
+//bottom nav bar
     bottomNavigationBar: AnimatedSwitcher(
      child:    isSwitched
          ?  PersonalNavBar()  :BusinessNav(),
@@ -295,8 +290,8 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
           borderRadius: BorderRadius.circular(20)
       ),
 
-      width: 240,
-      height: 40,
+      width: 200,
+      height: 35,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -304,9 +299,6 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
 
 
           Container(
-
-//              height: 25,
-//              width: 40,
             child:Switch(
 
               value: isSwitched,

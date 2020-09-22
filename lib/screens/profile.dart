@@ -372,7 +372,7 @@ margin: EdgeInsets.only(left: 20, right: 20),
               }
             },
             child: Container(
-//              margin: EdgeInsets.only( ),
+              margin: EdgeInsets.only(bottom: 20 ),
               width: double.infinity,
               height: 60,
               decoration: BoxDecoration(

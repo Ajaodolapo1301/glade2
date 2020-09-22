@@ -9,7 +9,7 @@ class PersonalNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-
+      type: BottomNavigationBarType.fixed,
 //      currentIndex: _selectedIndex,
       selectedItemColor: Colors.blueGrey,
       selectedIconTheme: IconThemeData(color:Colors.blueGrey ),

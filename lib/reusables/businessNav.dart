@@ -11,12 +11,11 @@ class BusinessNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-
+      type: BottomNavigationBarType.fixed,
 //      currentIndex: _selectedIndex,
       selectedItemColor: Colors.blueGrey,
       selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
-      unselectedItemColor: Colors.blueGrey ,
-      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
+
 
       iconSize: 30.0,
 //      onTap: (int index){
@@ -53,7 +52,7 @@ class BusinessNav extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Loan',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
 
@@ -64,7 +63,7 @@ class BusinessNav extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Invoice',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
 
@@ -75,7 +74,7 @@ class BusinessNav extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Cards',style: TextStyle(color: Colors.black),),
         ),
 
 

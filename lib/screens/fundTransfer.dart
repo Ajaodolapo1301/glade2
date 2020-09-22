@@ -131,7 +131,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                   duration: Duration(milliseconds: 300),
                                   height: 100,
                                   decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
+                                      color: Colors.grey.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(10)
                                   ),
                                   child: Stack(
@@ -146,7 +146,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.blueGrey,),
+                                            child: Icon(Icons.check, size: 15, color: kPrimaryColor,),
                                             decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 shape: BoxShape.circle
@@ -188,7 +188,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                   duration: Duration(milliseconds: 300),
                                   height: 100,
                                   decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.3),
+                                      color: Colors.grey.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
                                   child: Stack(
@@ -203,7 +203,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                           child: Container(
                                             height: 25,
                                             width: 25,
-                                            child: Icon(Icons.check, size: 15, color: Colors.blueGrey,),
+                                            child: Icon(Icons.check, size: 15, color: kPrimaryColor,),
                                             decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 shape: BoxShape.circle
@@ -283,7 +283,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -299,7 +299,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                               onTap: () {
 //                                                            showSheet();
                               },
-                              autofocus: true,
+
 //                          keyboardType: TextInputType.emailAddress,
 
                               decoration: InputDecoration(
@@ -308,12 +308,12 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                                   contentPadding: const EdgeInsets.all(20.0)),
                             ),
                           ),
-                          IconButton(
-                            icon: Icon(Icons.keyboard_arrow_down),
-                            onPressed: () {
-//                                                          showSheet();
-                            },
-                          )
+//                          IconButton(
+//                            icon: Icon(Icons.keyboard_arrow_down),
+//                            onPressed: () {
+////                                                          showSheet();
+//                            },
+//                          )
                         ],
                       ),
                     ),
@@ -327,41 +327,38 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                 Center(
                   child: Container(
                     width: 370,
-                    margin: EdgeInsets.only(top: 4,  right: 8),
+                    margin: EdgeInsets.only(top: 4, bottom: 20, right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 
                     ),
-                    child: Container(
-                      width: 300,
-                      child: TextFormField(
-                        controller: accountNum,
-                        onTap: () {},
-                        onChanged: (v) {
-                          if (v.length < 10) {
-                            accountName.text = "";
-                          } else if (v.length == 10 && bank.text.isNotEmpty) {
-//                                                        getName();
-                          }
-                        },
-                        autofocus: true,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          WhitelistingTextInputFormatter.digitsOnly,
-                          LengthLimitingTextInputFormatter(10)
-                        ],
-                        validator: (e) {
-                          if (e.length < 1) {
-                            return "enter a valid Account number";
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: "Account num",
-                            contentPadding: const EdgeInsets.all(20.0)),
-                      ),
+                    child: TextFormField(
+                      controller: accountNum,
+                      onTap: () {},
+//                        onChanged: (v) {
+//                          if (v.length < 10) {
+//                            accountName.text = "";
+//                          } else if (v.length == 10 && bank.text.isNotEmpty) {
+////                                                        getName();
+//                          }
+//                        },
+                      autofocus: true,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        WhitelistingTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(10)
+                      ],
+                      validator: (e) {
+                        if (e.length < 1) {
+                          return "enter a valid Account number";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Account num",
+                          contentPadding: const EdgeInsets.all(20.0)),
                     ),
                   ),
                 ),
@@ -374,7 +371,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -412,7 +409,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -459,7 +456,7 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -536,7 +533,6 @@ class _FundState extends State<Fund>  with TickerProviderStateMixin {
     return  Container(
       key: ValueKey("glade"),
 child: Column(
-//                        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Form(
             key: _formkeys,
@@ -553,7 +549,7 @@ child: Column(
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 
                     ),
@@ -561,14 +557,6 @@ child: Column(
                       width: 300,
                       child: TextFormField(
                         controller: accountNum,
-                        onTap: () {},
-                        onChanged: (v) {
-                          if (v.length < 10) {
-                            accountName.text = "";
-                          } else if (v.length == 10 && bank.text.isNotEmpty) {
-//                                                        getName();
-                          }
-                        },
                         autofocus: true,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -598,7 +586,7 @@ child: Column(
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -636,7 +624,7 @@ child: Column(
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
 //
                     ),
@@ -651,13 +639,12 @@ child: Column(
 
                         controller: amount,
                         onTap: () {},
-                        autofocus: true,
+
 
                         validator: (value) {
                           if (!(value.length > 5 && value.isNotEmpty)) {
                             return "Amount should contain more than 5 characters";
                           }
-
                           return null;
                         },
                         style: new TextStyle(color: Colors.black, fontSize: 15.0),
@@ -666,7 +653,7 @@ child: Column(
 
                             prefixText: 'NGN ',
                             border: InputBorder.none,
-
+                            hintText: "0.00",
                             contentPadding: const EdgeInsets.all(20.0)),
                       ),
                     ),
@@ -683,9 +670,9 @@ child: Column(
                     width: 370,
                     margin: EdgeInsets.only(top: 4,  right: 8),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
+                        color: Colors.grey.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(7)
-//
+
                     ),
                     child: Container(
                       width: 300,
@@ -693,15 +680,9 @@ child: Column(
 
                         controller: narration,
                         onTap: () {},
-                        autofocus: true,
+
                         keyboardType: TextInputType.text,
-//                                            validator: (value) {
-//                                              if (!(value.length > 5 && value.isNotEmpty)) {
-//                                                return "Account should contain more than 5 characters";
-//                                              }
 //
-//                                              return null;
-//                                            },
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: "Narration",
