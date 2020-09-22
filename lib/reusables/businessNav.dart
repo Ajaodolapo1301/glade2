@@ -12,12 +12,14 @@ class BusinessNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-//      currentIndex: _selectedIndex,
+      selectedFontSize: 15,
+      unselectedFontSize: 15,
       selectedItemColor: Colors.blueGrey,
       selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
+      unselectedItemColor: Colors.blueGrey ,
+      unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
 
-
-      iconSize: 30.0,
+      iconSize: 35.0,
 //      onTap: (int index){
 //        setState(() {
 //          _selectedIndex = index;
@@ -26,7 +28,7 @@ class BusinessNav extends StatelessWidget {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Image.asset("images/bankmoney.png"),
-          activeIcon:Image.asset("images/bankmoney.png"),
+          activeIcon:Image.asset("images/glade.png"),
 
           title: Text('Home',),
         ),
@@ -40,38 +42,26 @@ class BusinessNav extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Fund ',style: TextStyle(color: Colors.black),),
         ),
 
         BottomNavigationBarItem(
 
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
+          icon: Image.asset("images/bankmoney.png"),
           activeIcon:Image.asset("images/bankmoney.png"),
 
           title: Text('Loan',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
 
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
+          icon: Image.asset("images/bankmoney.png"),
           activeIcon:Image.asset("images/bankmoney.png"),
 
           title: Text('Invoice',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
 
-          icon: InkWell(
-              onTap: (){
-                Navigator.push(context, FadeRoute(page: Fund()));
-              },
-              child: Image.asset("images/bankmoney.png")),
+          icon: Image.asset("images/bankmoney.png"),
           activeIcon:Image.asset("images/bankmoney.png"),
 
           title: Text('Cards',style: TextStyle(color: Colors.black),),

@@ -10,13 +10,14 @@ class PersonalNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-//      currentIndex: _selectedIndex,
+      selectedFontSize: 15,
+      unselectedFontSize: 15,
       selectedItemColor: Colors.blueGrey,
       selectedIconTheme: IconThemeData(color:Colors.blueGrey ),
       unselectedItemColor: Colors.blueGrey ,
       unselectedIconTheme: IconThemeData(color:Colors.blueGrey ),
 
-      iconSize: 30.0,
+      iconSize: 35.0,
 //      onTap: (int index){
 //        setState(() {
 //          _selectedIndex = index;
@@ -51,7 +52,7 @@ class PersonalNavBar extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Airtime & Bills',style: TextStyle(color: Colors.black),),
         ),
         BottomNavigationBarItem(
 
@@ -62,7 +63,7 @@ class PersonalNavBar extends StatelessWidget {
               child: Image.asset("images/bankmoney.png")),
           activeIcon:Image.asset("images/bankmoney.png"),
 
-          title: Text('Fund Transfer',style: TextStyle(color: Colors.black),),
+          title: Text('Cards',style: TextStyle(color: Colors.black),),
         ),
 
 
