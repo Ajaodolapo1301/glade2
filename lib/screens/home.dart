@@ -299,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage>    with SingleTickerProviderSta
   }
 
 
-  Widget switches({bool toggler, String text}) {
+  Widget switches() {
     return Container(
       decoration: BoxDecoration(
           color: isSwitched ? Colors.orange : kPrimaryColor,
